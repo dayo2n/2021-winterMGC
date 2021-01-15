@@ -1,0 +1,480 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'/Users/mundayeon/Documents/Python/BASIC'"
+      ]
+     },
+     "execution_count": 1,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import os\n",
+    "os.getcwd()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'Programmaing is fun.\\nVery fun!\\n\\nYou have to do it yourself...'"
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "f = open('/Users/mundayeon/Documents/Python/BASIC/untitled.txt')\n",
+    "f.read()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "buffer = f.read()\n",
+    "print(buffer)\n",
+    "#왜 .. 출력이 안됨 ..?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "letter = open('/Users/mundayeon/Documents/Python/BASIC/newTxt.txt', 'w')\n",
+    "letter.write('Dear Father,')\n",
+    "letter.close()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "letter = open('/Users/mundayeon/Documents/Python/BASIC/newTxt.txt', 'a+')\n",
+    "# a+이면 이어쓰기, w면 덮어씀\n",
+    "letter.write('\\n\\nHow are you?')\n",
+    "letter.close()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'This is Python version 3.7.1\\n'"
+      ]
+     },
+     "execution_count": 13,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#6.1 한 줄 씩 다루기\n",
+    "f = open('/Users/mundayeon/Documents/Python/BASIC/readme.txt')\n",
+    "f.readline()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'============================='"
+      ]
+     },
+     "execution_count": 14,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "f.readline()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "\n",
+      "\n",
+      "\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "#readme.txt 파일 내용이 없어서 결과가 안보이지만 실제로는 실행됨\n",
+    "for x in range(5):\n",
+    "    line = f.readline()\n",
+    "    print(line)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "lines = f.readlines()\n",
+    "import sys\n",
+    "sys.stdout.writelines(lines[:5])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "TypeError",
+     "evalue": "write() argument must be str, not bytes",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-19-9557f4edbb03>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m      3\u001b[0m \u001b[0mf\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mopen\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'users.txt'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'w'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      4\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mpickle\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 5\u001b[0;31m \u001b[0mpickle\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mdump\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0musers\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mf\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      6\u001b[0m \u001b[0mf\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mclose\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;31mTypeError\u001b[0m: write() argument must be str, not bytes"
+     ]
+    }
+   ],
+   "source": [
+    "#6.2 파일을 입맛대로 (pickle, glob, os.path)\n",
+    "users = {'kim' : '3kid9', 'dayo2n' : 'tngus3514!', 'kyun1229' : 'wjsals301blah'}\n",
+    "f = open('users.txt', 'w')\n",
+    "import pickle\n",
+    "pickle.dump(users, f)\n",
+    "f.close()\n",
+    "#이건 또 왜 안돼?;.;;;;;;;;;;;;;"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "TypeError",
+     "evalue": "a bytes-like object is required, not 'str'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-20-5e2b6e7b545d>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m      1\u001b[0m \u001b[0mf\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mopen\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'users.txt'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 2\u001b[0;31m \u001b[0ma\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mpickle\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mload\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mf\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      3\u001b[0m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0ma\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;31mTypeError\u001b[0m: a bytes-like object is required, not 'str'"
+     ]
+    }
+   ],
+   "source": [
+    "f = open('users.txt')\n",
+    "a = pickle.load(f)\n",
+    "print(a)\n",
+    "# 인자가 잘못받아지는거같다 ... 작성자랑 버전이 다른듯"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[]"
+      ]
+     },
+     "execution_count": 21,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#glob\n",
+    "from glob import glob\n",
+    "glob('*.exe')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['untitled.txt', 'newTxt.txt', 'readme.txt', 'users.txt']"
+      ]
+     },
+     "execution_count": 22,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "glob('*.txt')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['/Users/mundayeon/Documents/Python/BASIC']"
+      ]
+     },
+     "execution_count": 23,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "glob('/Users/mundayeon/Documents/Python/*') # 다른 경로의 파일도 탐색 가능 "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "03. Method.ipynb\n",
+      "untitled.txt\n",
+      "02. 제어구조.ipynb\n",
+      "newTxt.txt\n",
+      "04. Data Type.ipynb\n",
+      "readme.txt\n",
+      "users.txt\n",
+      "05. 모듈(module).ipynb\n",
+      "06. 파일(File).ipynb\n",
+      "01. start Python.ipynb\n"
+     ]
+    }
+   ],
+   "source": [
+    "from glob import glob\n",
+    "from os.path import isdir\n",
+    "\n",
+    "for x in glob('*'):\n",
+    "    if isdir(x):\n",
+    "        print(x, '<DIR>') #디렉토리 파일이면 '<DIR>'을 붙여 출력되도록, 근데 디렉토리없어서 출력된거없음!\n",
+    "    else:\n",
+    "        print(x)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#6.3 파이썬으로 PDF 파일 합치기 - 이거 유용할듯,, 알아두기\n",
+    "# $ pip install PyPDF2 - 터미널에서 설치"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "FileNotFoundError",
+     "evalue": "[Errno 2] No such file or directory: '../sample01.pdf'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mFileNotFoundError\u001b[0m                         Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-28-7f3fc931aa6e>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m      5\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      6\u001b[0m \u001b[0;32mfor\u001b[0m \u001b[0mpdf\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mpdfs\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 7\u001b[0;31m     \u001b[0mmerger\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mappend\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mpdf\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      8\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      9\u001b[0m \u001b[0mmerger\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mwrite\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'myPdf.pdf'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32m~/anaconda3/lib/python3.7/site-packages/PyPDF2/merger.py\u001b[0m in \u001b[0;36mappend\u001b[0;34m(self, fileobj, bookmark, pages, import_bookmarks)\u001b[0m\n\u001b[1;32m    201\u001b[0m         \"\"\"\n\u001b[1;32m    202\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 203\u001b[0;31m         \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mmerge\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mlen\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mpages\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mfileobj\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mbookmark\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mpages\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mimport_bookmarks\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    204\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    205\u001b[0m     \u001b[0;32mdef\u001b[0m \u001b[0mwrite\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mfileobj\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32m~/anaconda3/lib/python3.7/site-packages/PyPDF2/merger.py\u001b[0m in \u001b[0;36mmerge\u001b[0;34m(self, position, fileobj, bookmark, pages, import_bookmarks)\u001b[0m\n\u001b[1;32m    112\u001b[0m         \u001b[0mdecryption_key\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;32mNone\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    113\u001b[0m         \u001b[0;32mif\u001b[0m \u001b[0misString\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mfileobj\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 114\u001b[0;31m             \u001b[0mfileobj\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mfile\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mfileobj\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'rb'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    115\u001b[0m             \u001b[0mmy_file\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;32mTrue\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    116\u001b[0m         \u001b[0;32melif\u001b[0m \u001b[0misinstance\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mfileobj\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mfile\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;31mFileNotFoundError\u001b[0m: [Errno 2] No such file or directory: '../sample01.pdf'"
+     ]
+    }
+   ],
+   "source": [
+    "from PyPDF2 import PdfFileMerger\n",
+    "pdfs = ['../sample01.pdf', '../sample02.pdf']\n",
+    "\n",
+    "merger = PdfFileMerger()\n",
+    "\n",
+    "for pdf in pdfs:\n",
+    "    merger.append(pdf)\n",
+    "\n",
+    "merger.write('myPdf.pdf')\n",
+    "merger.close()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "UnicodeEncodeError",
+     "evalue": "'latin-1' codec can't encode characters in position 8-9: ordinal not in range(256)",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mUnicodeEncodeError\u001b[0m                        Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-30-dc4623e27536>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m      9\u001b[0m     \u001b[0mmerger\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mappend\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mf\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     10\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 11\u001b[0;31m \u001b[0mmerger\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mwrite\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mBOOK\u001b[0m \u001b[0;34m+\u001b[0m \u001b[0;34m\".pdf\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     12\u001b[0m \u001b[0mmerger\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mclose\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32m~/anaconda3/lib/python3.7/site-packages/PyPDF2/merger.py\u001b[0m in \u001b[0;36mwrite\u001b[0;34m(self, fileobj)\u001b[0m\n\u001b[1;32m    228\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    229\u001b[0m         \u001b[0;31m# Write the output to the file\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 230\u001b[0;31m         \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0moutput\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mwrite\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mfileobj\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    231\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    232\u001b[0m         \u001b[0;32mif\u001b[0m \u001b[0mmy_file\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32m~/anaconda3/lib/python3.7/site-packages/PyPDF2/pdf.py\u001b[0m in \u001b[0;36mwrite\u001b[0;34m(self, stream)\u001b[0m\n\u001b[1;32m    499\u001b[0m                 \u001b[0mmd5_hash\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mmd5\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mkey\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mdigest\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    500\u001b[0m                 \u001b[0mkey\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mmd5_hash\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0mmin\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;36m16\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mlen\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_encrypt_key\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;34m+\u001b[0m \u001b[0;36m5\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 501\u001b[0;31m             \u001b[0mobj\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mwriteToStream\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mstream\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mkey\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    502\u001b[0m             \u001b[0mstream\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mwrite\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mb_\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"\\nendobj\\n\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    503\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32m~/anaconda3/lib/python3.7/site-packages/PyPDF2/generic.py\u001b[0m in \u001b[0;36mwriteToStream\u001b[0;34m(self, stream, encryption_key)\u001b[0m\n\u001b[1;32m    547\u001b[0m             \u001b[0mkey\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mwriteToStream\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mstream\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mencryption_key\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    548\u001b[0m             \u001b[0mstream\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mwrite\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mb_\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\" \"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 549\u001b[0;31m             \u001b[0mvalue\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mwriteToStream\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mstream\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mencryption_key\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    550\u001b[0m             \u001b[0mstream\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mwrite\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mb_\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"\\n\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    551\u001b[0m         \u001b[0mstream\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mwrite\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mb_\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\">>\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32m~/anaconda3/lib/python3.7/site-packages/PyPDF2/generic.py\u001b[0m in \u001b[0;36mwriteToStream\u001b[0;34m(self, stream, encryption_key)\u001b[0m\n\u001b[1;32m    470\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    471\u001b[0m     \u001b[0;32mdef\u001b[0m \u001b[0mwriteToStream\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mstream\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mencryption_key\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 472\u001b[0;31m         \u001b[0mstream\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mwrite\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mb_\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    473\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    474\u001b[0m     \u001b[0;32mdef\u001b[0m \u001b[0mreadFromStream\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mstream\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mpdf\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32m~/anaconda3/lib/python3.7/site-packages/PyPDF2/utils.py\u001b[0m in \u001b[0;36mb_\u001b[0;34m(s)\u001b[0m\n\u001b[1;32m    236\u001b[0m             \u001b[0;32mreturn\u001b[0m \u001b[0ms\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    237\u001b[0m         \u001b[0;32melse\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 238\u001b[0;31m             \u001b[0mr\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0ms\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mencode\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'latin-1'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    239\u001b[0m             \u001b[0;32mif\u001b[0m \u001b[0mlen\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0ms\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;34m<\u001b[0m \u001b[0;36m2\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    240\u001b[0m                 \u001b[0mbc\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0ms\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mr\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;31mUnicodeEncodeError\u001b[0m: 'latin-1' codec can't encode characters in position 8-9: ordinal not in range(256)"
+     ]
+    }
+   ],
+   "source": [
+    "from glob import glob\n",
+    "from PyPDF2 import PdfFileMerger\n",
+    "\n",
+    "BOOK = 'sample'\n",
+    "\n",
+    "merger = PdfFileMerger()\n",
+    "\n",
+    "for f in glob('*' + BOOK + '*.pdf'):\n",
+    "    merger.append(f)\n",
+    "\n",
+    "merger.write(BOOK + \".pdf\")\n",
+    "merger.close()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "usage: ipykernel_launcher.py [-h] [-d DIRECTORY] bookname\n",
+      "ipykernel_launcher.py: error: unrecognized arguments: -f\n"
+     ]
+    },
+    {
+     "ename": "SystemExit",
+     "evalue": "2",
+     "output_type": "error",
+     "traceback": [
+      "An exception has occurred, use %tb to see the full traceback.\n",
+      "\u001b[0;31mSystemExit\u001b[0m\u001b[0;31m:\u001b[0m 2\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "UserWarning: To exit: use 'exit', 'quit', or Ctrl-D. [interactiveshell.py:3275]\n"
+     ]
+    }
+   ],
+   "source": [
+    "#이거는 예제따라만 쳐 본 부분\n",
+    "import argparse\n",
+    "from glob import glob\n",
+    "import os\n",
+    "\n",
+    "from PyPDF2 import PdfFileMerger\n",
+    "\n",
+    "def main(book_title, directory=\".\", sub_dir='merged'):\n",
+    "    merger = PdfFileMerger()\n",
+    "\n",
+    "    for f in glob(f\"{directory}/{book_title}*.pdf\"):\n",
+    "        merger.append(f)\n",
+    "\n",
+    "    os.chdir(directory)\n",
+    "    if not os.path.isdir(sub_dir):\n",
+    "        os.mkdir(sub_dir)\n",
+    "\n",
+    "    merger.write(f\"{directory}/{sub_dir}/{bookname}.pdf\")\n",
+    "    merger.close()\n",
+    "\n",
+    "if __name__ == '__main__':\n",
+    "    parser = argparse.ArgumentParser()\n",
+    "    parser.add_argument(\"-d\", \"--directory\", help=\"directory where files to be merged live\")\n",
+    "    parser.add_argument(\"bookname\")\n",
+    "    args = parser.parse_args()\n",
+    "    directory = args.directory\n",
+    "    bookname = args.bookname\n",
+    "\n",
+    "    main(args.bookname, args.directory)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.1"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

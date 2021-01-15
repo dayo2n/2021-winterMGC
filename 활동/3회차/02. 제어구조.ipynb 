@@ -1,0 +1,664 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#2.1 while을 사용하는 반복문"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(1)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "2\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n",
+      "2\n",
+      "3\n",
+      "4\n",
+      "5\n",
+      "6\n",
+      "7\n",
+      "8\n",
+      "9\n",
+      "10\n",
+      "11\n",
+      "12\n",
+      "13\n",
+      "14\n",
+      "15\n",
+      "16\n",
+      "17\n",
+      "18\n",
+      "19\n",
+      "20\n",
+      "21\n",
+      "22\n",
+      "23\n",
+      "24\n",
+      "25\n",
+      "26\n",
+      "27\n",
+      "28\n",
+      "29\n",
+      "30\n",
+      "31\n",
+      "32\n",
+      "33\n",
+      "34\n",
+      "35\n",
+      "36\n",
+      "37\n",
+      "38\n",
+      "39\n",
+      "40\n",
+      "41\n",
+      "42\n",
+      "43\n",
+      "44\n",
+      "45\n",
+      "46\n",
+      "47\n",
+      "48\n",
+      "49\n",
+      "50\n",
+      "51\n",
+      "52\n",
+      "53\n",
+      "54\n",
+      "55\n",
+      "56\n",
+      "57\n",
+      "58\n",
+      "59\n",
+      "60\n",
+      "61\n",
+      "62\n",
+      "63\n",
+      "64\n",
+      "65\n",
+      "66\n",
+      "67\n",
+      "68\n",
+      "69\n",
+      "70\n",
+      "71\n",
+      "72\n",
+      "73\n",
+      "74\n",
+      "75\n",
+      "76\n",
+      "77\n",
+      "78\n",
+      "79\n",
+      "80\n",
+      "81\n",
+      "82\n",
+      "83\n",
+      "84\n",
+      "85\n",
+      "86\n",
+      "87\n",
+      "88\n",
+      "89\n",
+      "90\n",
+      "91\n",
+      "92\n",
+      "93\n",
+      "94\n",
+      "95\n",
+      "96\n",
+      "97\n",
+      "98\n",
+      "99\n",
+      "100\n"
+     ]
+    }
+   ],
+   "source": [
+    "num = 1\n",
+    "while num <= 100:\n",
+    "    print(num)\n",
+    "    num += 1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "num is 3\n",
+      "3\n",
+      "3\n",
+      "3\n"
+     ]
+    }
+   ],
+   "source": [
+    "#연습문제 2.1 : 입력받은 숫자만큼 반복하기 (while)\n",
+    "    # input()으로 사용자로부터 정수를 한 개 입력받아, 그 숫자를 숫자의 크기만큼 반복해서 출력하는 파이썬 스크립트를 작성. 단, while문을 사용\n",
+    "    \n",
+    "usrNum = int(input('num is '))\n",
+    "start = 1\n",
+    "while start <= usrNum:\n",
+    "    print(usrNum)\n",
+    "    start += 1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "3\n",
+      "1   1\n",
+      "2   4\n",
+      "3   9\n"
+     ]
+    }
+   ],
+   "source": [
+    "#연습문제 2.2 : 제곱표 (while)\n",
+    "    # 정수를 한 개 입력받아, 1부터 입력받은 수까지 각각에 대해 제곱을 구해 프린트하는 프로그램을 작성. 단 while문 사용\n",
+    "\n",
+    "usrNum = int(input())\n",
+    "start = 1\n",
+    "while start <= usrNum:\n",
+    "    print(start, ' ', start**2)\n",
+    "    start += 1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1   60.0\n",
+      "2   36.0\n",
+      "3   21.6\n",
+      "4   12.96\n",
+      "5   7.776\n",
+      "6   4.6656\n",
+      "7   2.7994\n",
+      "8   1.6796\n",
+      "9   1.0078\n",
+      "10   0.6047\n"
+     ]
+    }
+   ],
+   "source": [
+    "#연습문제 2.3 : 얌체공\n",
+    "    # 고무 공을 100미터 높이에서 떨어뜨리는데, 이 공은 땅에 닿을 때마다 원래 높이의 3/5만큼 튀어오른다. 공이 열 번 튈 동안, 그때마다의 공의 높이를 계산\n",
+    "    \n",
+    "#     round() : 반올림을 해주는 함수\n",
+    "#     >>> round(1.23456, 2)\n",
+    "#     1.23\n",
+    "#     1.23456을 소수점 둘째 자리로 (셋째 자리에서) 반올림\n",
+    "    \n",
+    "#     >>>round(2.675, 2)\n",
+    "#     2.67\n",
+    "#     2.68이 아닌 2.67로 나오는 것은 버그가 아님. 부동소수점 연산의 한계\n",
+    "\n",
+    "height = 100\n",
+    "start = 1\n",
+    "while start <= 10:\n",
+    "    height *= (3/5)\n",
+    "    print(start, ' ', round(height, 4))\n",
+    "    start += 1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "b\n"
+     ]
+    }
+   ],
+   "source": [
+    "# 2.2 조건문 (if-elif-else)\n",
+    "\n",
+    "a = 1234 * 4\n",
+    "b = 13456 / 2\n",
+    "\n",
+    "if a > b:\n",
+    "    print('a')\n",
+    "else:\n",
+    "    print('b')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "c == d\n"
+     ]
+    }
+   ],
+   "source": [
+    "c = 15 * 5\n",
+    "d = 15 + 15 + 15 + 15 + 15\n",
+    "if c > d:\n",
+    "    print('c > d')\n",
+    "elif c == d:\n",
+    "    print ('c == d')\n",
+    "elif c < d:\n",
+    "    print('c < d')\n",
+    "else:\n",
+    "    print('i don\\'t know')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "48는 4로 나누어 떨어집니다.\n"
+     ]
+    }
+   ],
+   "source": [
+    "a = 48\n",
+    "b = 4\n",
+    "if a % b == 0:\n",
+    "    print(f'{a}는 {b}로 나누어 떨어집니다.')\n",
+    "else:\n",
+    "    print(f'{a}는 {b}로 나누어 떨어지지 않습니다.')\n",
+    "\n",
+    "#f-string : 문자 포매팅 방법"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "3\n",
+      "6\n",
+      "9\n",
+      "12\n",
+      "12 is too big\n"
+     ]
+    }
+   ],
+   "source": [
+    "max = 10\n",
+    "\n",
+    "while True:\n",
+    "    num = int(input())\n",
+    "    if num > max:\n",
+    "        print(num, 'is too big')\n",
+    "        break"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "2\n",
+      "3\n",
+      "4\n",
+      "-2\n"
+     ]
+    }
+   ],
+   "source": [
+    "#연습문제 2.3 : 양수만 덧셈하기\n",
+    "    # input()으로 사용자로부터 입력받은 정수를 계속 더해나가다가, 음수가 입력되면 중단하고 그 전까지 계산한 값을 출력하는 파이썬 스크립트를 작성\n",
+    "    \n",
+    "while True:\n",
+    "    num = int(input())\n",
+    "    if num < 0:\n",
+    "        break"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "400\n",
+      "400년은 윤년\n"
+     ]
+    }
+   ],
+   "source": [
+    "#연습문제 2.4 : 윤년 판별하기\n",
+    "    # 윤년은 역법을 실제 태양년에 맞추기 위해 여분의 하루 또는 월을 끼우는 해. 그레고리력의 윤년 규칙에 따라 입력받은 정수가 윤년인지 아닌지 출력하는 프로그램을 작성\n",
+    "    \n",
+    "year = int(input())\n",
+    "flag = True\n",
+    "\n",
+    "if year % 4 == 0:\n",
+    "    if year % 100 == 0:\n",
+    "        if year % 400 == 0:\n",
+    "            flag = True\n",
+    "        else:\n",
+    "            flag = False\n",
+    "    else:\n",
+    "        flag = True\n",
+    "else:\n",
+    "    flag = False\n",
+    "    \n",
+    "if flag:\n",
+    "    print(f'{year}년은 윤년')\n",
+    "else:\n",
+    "    print(f'{year}년은 평년')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 32,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "dad 3\n",
+      "mom 3\n",
+      "me 2\n",
+      "brother 7\n"
+     ]
+    }
+   ],
+   "source": [
+    "#2.3 for를 사용하는 반복문\n",
+    "\n",
+    "family = ['dad', 'mom', 'me', 'brother']\n",
+    "for x in family:\n",
+    "    print('%s %d' % (x, len(x))) # %s : string, %d : double"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 34,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[2, 3, 4, 5, 6]"
+      ]
+     },
+     "execution_count": 34,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "list(range(2, 7))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "4\n",
+      "5\n",
+      "6\n",
+      "7\n"
+     ]
+    }
+   ],
+   "source": [
+    "a = [4, 5, 6, 7]\n",
+    "for i in a:\n",
+    "    print(i)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 36,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "4\n",
+      "5\n",
+      "6\n",
+      "7\n"
+     ]
+    }
+   ],
+   "source": [
+    "for i in range(4, 8):\n",
+    "    print(i)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 39,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "3\n",
+      "3\n",
+      "3\n",
+      "3\n"
+     ]
+    }
+   ],
+   "source": [
+    "#연습문제 2.5 : 입력받은 숫자만큼 반복하기 (for)\n",
+    "    # 사용자로부터 정수를 한 개 입력받아, 그 숫자를 숫자 크기만큼 반복해서 출력하는 파이썬 스크립트 작성. 단 for문을 사용\n",
+    "    \n",
+    "num = int(input())\n",
+    "for i in range(num):\n",
+    "    print(num)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 40,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "3\n",
+      "1   1\n",
+      "2   4\n",
+      "3   9\n"
+     ]
+    }
+   ],
+   "source": [
+    "#연습문제 2.6 : 제곱표 (for)\n",
+    "    # 정수를 한 개 입력받아 1부터 입력받은 수까지 각각에 대해 제곱을 구해 프린트하는 프로그램을 작성. 단, for문을 사용\n",
+    "start = 1\n",
+    "num = int(input())\n",
+    "\n",
+    "for i in range(num):\n",
+    "    print(start, ' ', start ** 2)\n",
+    "    start += 1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 44,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "30\n",
+      "[2, 3, 5, 7, 11, 13, 17, 19, 23, 29]\n"
+     ]
+    }
+   ],
+   "source": [
+    "#연습문제 2.7 : 소수 구하기\n",
+    "    # 찾고자하는 범위의 소수를 구하는 문제. 반복문을 사용할 것\n",
+    "    \n",
+    "num = int(input())\n",
+    "li = list(range(2, num))\n",
+    "\n",
+    "for x in li:\n",
+    "    for y in li:\n",
+    "        if x != y and y % x == 0:\n",
+    "            li.remove(y)\n",
+    "print(li)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 53,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "10 20\n",
+      "15\n",
+      "Nothing to report\n",
+      "\n",
+      "10\n",
+      "Nothing to report\n",
+      "\n",
+      "2\n",
+      "Alert!\n"
+     ]
+    }
+   ],
+   "source": [
+    "#연습문제 2.8 : 화학 실험실\n",
+    "\n",
+    "report = 'Nothing to report\\n'\n",
+    "alert = 'Alert!'\n",
+    "\n",
+    "points = input()\n",
+    "freezingPoint, boilingPoint = points.split()\n",
+    "\n",
+    "point = int(input())\n",
+    "while point != -999:\n",
+    "    if point < int(freezingPoint) or point > int(boilingPoint):\n",
+    "        print(alert)\n",
+    "        break\n",
+    "    else:\n",
+    "        print(report)\n",
+    "        point = int(input())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.1"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
